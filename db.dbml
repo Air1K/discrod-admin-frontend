@@ -1,0 +1,19 @@
+Table users{
+id int [pk, increment]
+name varchar(100)
+email varchar(100) [unique]
+created_at timestamp [default: `now()`]
+updated_at timestamp [default: `now()`]
+}
+
+Table posts{
+id int [pk, increment]
+user_id int [ref: > users.id]
+title varchar(200)
+content text
+created_at timestamp [default: `now()`]
+updated_at timestamp [default: `now()`]
+updated_at timestamp [default: `now()`]
+}
+
+Ref: users.id < posts.user_id
