@@ -5,7 +5,7 @@ import * as React from 'react'
 
 const LogoMark: FC<React.ComponentProps<'div'>> = (props) => {
   return (
-    <Badge variant={'icon'} shape={'square'} size={'sm'} {...props}>
+    <Badge variant={'icon'} shape={'square'} size={'lg'} {...props}>
       <ShieldCheck />
     </Badge>
   )

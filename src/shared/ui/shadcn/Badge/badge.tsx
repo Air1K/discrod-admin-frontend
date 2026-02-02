@@ -18,7 +18,7 @@ const badgeVariants = cva(
         soft: 'bg-muted/50 text-muted-foreground border-border/40',
         kicker:
           'bg-card/40 text-muted-foreground border-border/30 backdrop-blur supports-[backdrop-filter]:backdrop-blur-md uppercase tracking-[0.22em]',
-        icon: 'bg-card/55 text-foreground border-border/35 shadow-sm shadow-black/5 dark:shadow-black/20',
+        icon: 'bg-card text-foreground border-border/35 shadow-sm shadow-black/5 dark:shadow-black/20',
         solid: 'bg-primary text-primary-foreground border-transparent',
         outline: 'bg-transparent text-foreground border-border/60',
         destructive:

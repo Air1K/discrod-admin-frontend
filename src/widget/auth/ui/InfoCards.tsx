@@ -22,4 +22,4 @@ const InfoCards: FC = () => {
   )
 }
 
-export default InfoCards
+export { InfoCards }

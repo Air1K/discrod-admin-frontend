@@ -1,22 +1,20 @@
 import { type FC } from 'react'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { LoginFormSchema } from '@/feature/(auth)/login/model/loginFormValidation.schema.ts'
-import { Controller, useForm } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 import { Input } from '@/shared/ui/shadcn/Input'
 import { Lock, User } from 'lucide-react'
 import type { LoginPayload } from '@/entities/auth'
 import { Button } from '@/shared/ui/shadcn/Button'
 import { Link } from 'react-router'
-import FormFiled from '@/shared/ui/FormFiled/FormFiled.tsx'
-import { Checkbox } from '@/shared/ui/shadcn/Checkbox'
+import FormFiled from '@/shared/ui/form/FormFiled/FormFiled.tsx'
+import { RHFCheckbox } from '@/shared/ui/form/CheckBoxRHF/CheckBoxRHF.tsx'
 
 const LoginForm: FC = () => {
   const {
     register,
     control,
-    setValue,
     handleSubmit,
-    reset,
     formState: { errors },
   } = useForm({
     resolver: zodResolver(LoginFormSchema),
@@ -43,21 +41,13 @@ const LoginForm: FC = () => {
 
       <div className={'flex justify-between items-center'}>
         <FormFiled
+          name={'rememberMe'}
           label={'Запомнить меня?'}
-          labelPosition={'right'}
           errorMessage={errors.rememberMe?.message}
+          orientation={'horizontal'}
+          revers
         >
-          <Controller
-            control={control}
-            name={'rememberMe'}
-            render={({ field, fieldState }) => (
-              <Checkbox
-                checked={field.value}
-                onCheckedChange={field.onChange}
-                aria-invalid={fieldState.invalid}
-              />
-            )}
-          />
+          <RHFCheckbox control={control} name={'rememberMe'} />
         </FormFiled>
         <Button variant={'text'} asChild>
           <Link to={''}>Забыли пароль?</Link>

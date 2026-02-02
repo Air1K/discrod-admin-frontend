@@ -31,10 +31,10 @@ const checkboxVariants = cva(
           'bg-transparent data-[state=checked]:bg-transparent data-[state=checked]:ring-2 data-[state=checked]:ring-primary/40 data-[state=checked]:text-primary',
       },
       size: {
-        sm: "size-4 [&_[data-slot='checkbox-icon']]:size-3",
-        md: "size-5 [&_[data-slot='checkbox-icon']]:size-3.5",
-        lg: "size-6 [&_[data-slot='checkbox-icon']]:size-4",
-        xl: "size-7 [&_[data-slot='checkbox-icon']]:size-5",
+        sm: "!size-4 [&_[data-slot='checkbox-icon']]:size-3",
+        md: "!size-5 [&_[data-slot='checkbox-icon']]:size-3.5",
+        lg: "!size-6 [&_[data-slot='checkbox-icon']]:size-4",
+        xl: "!size-7 [&_[data-slot='checkbox-icon']]:size-5",
       },
       glow: {
         true: 'hover:shadow-[0_10px_30px_-10px_var(--tw-shadow-color)] shadow-[#5865F2]/40 data-[state=checked]:shadow-[#5865F2]/45',

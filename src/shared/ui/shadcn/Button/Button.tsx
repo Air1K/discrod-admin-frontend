@@ -13,6 +13,7 @@ const buttonVariants = cva(
     'disabled:pointer-events-none disabled:opacity-50',
     '[&_svg]:pointer-events-none [&_svg:not([class*="size-"])]:size-4 [&_svg]:shrink-0',
     'shrink-0 outline-none focus-visible:ring-4 focus-visible:ring-ring/35',
+    'cursor-pointer',
   ].join(' '),
   {
     variants: {
@@ -46,14 +47,14 @@ const buttonVariants = cva(
          * ghost — минимальное действие
          */
         text: 'bg-transparent !p-0 h-auto rounded-none text-foreground/80 hover:text-foreground focus-visible:ring-0',
-        ghost: 'bg-transparent text-foreground/80 hover:bg-accent hover:text-accent-foreground',
+        ghost: 'bg-transparent text-foreground hover:bg-accent hover:text-accent-foreground',
         link: 'hover:text-primary p-0! underline',
       },
 
       size: {
         default: 'px-4 py-2.5 has-[>svg]:px-3',
         sm: 'rounded-lg gap-1.5 px-3 py-2 has-[>svg]:px-2.5',
-        lg: 'rounded-2xl px-6 py-4 has-[>svg]:px-5 text-base',
+        lg: 'rounded-2xl px-6 py-4 has-[>svg]:px-5 text-base [&_svg:not([class*="size-"])]:size-5',
         icon: 'size-10 rounded-xl',
         'icon-sm': 'size-8 rounded-lg',
         'icon-lg': 'size-12 rounded-2xl',

@@ -1,7 +1,7 @@
 import { type FC } from 'react'
 import LogoLockup from '@/shared/ui/logo/LogoLockup.tsx'
 import LoginCard from './LoginCard.tsx'
-import InfoCards from './InfoCards.tsx'
+import { InfoCards } from '@/widget/auth'
 
 const LoginPage: FC = () => {
   return (

@@ -20,6 +20,11 @@ export const authApi = {
     return UserSchema.parse(data)
   },
 
+  logout: async () => {
+    const { data } = await $api.post('/api/public/auth/logout')
+    return data
+  },
+
   checkAuth: async () => {
     const { data } = await $api.get<ApiUser>('/api/public/auth/check-auth')
     return UserSchema.parse(data)

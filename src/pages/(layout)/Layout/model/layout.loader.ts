@@ -1,7 +1,6 @@
-import type { LoaderFunctionArgs } from 'react-router'
 import { checkAuthQuery } from '@/feature/(auth)/checkAuth/model/checkAuth.query.ts'
 
-export default async function layoutLoader(arg: LoaderFunctionArgs) {
+export default async function layoutLoader() {
   await checkAuthQuery()
-  return arg
+  return null
 }

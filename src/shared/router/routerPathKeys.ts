@@ -16,3 +16,5 @@ export const routerPathKeys = {
   //   bySlug: (slug: string) => `/editor/${slug}/`,
   // },
 } as const
+
+export type RouterPath = (typeof routerPathKeys)[keyof typeof routerPathKeys]

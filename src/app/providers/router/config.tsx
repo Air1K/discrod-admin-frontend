@@ -2,10 +2,11 @@ import { createBrowserRouter, redirect, useRouteError, Outlet } from 'react-rout
 import { page404Route } from '@/pages/NotFoundPage'
 import Spinner from '@/shared/ui/Spinner.tsx'
 import { routerPathKeys } from '@/shared/router/routerPathKeys.ts'
-import { loginPageRoute } from '@/pages/(auth)/Login'
+import { loginRoute } from '@/pages/(auth)/Login'
 import BackgroundLayout from '@/shared/ui/layout/BackgroundLayout.tsx'
-import { layoutPageRoute } from '@/pages/(layout)/Layout'
-import { guestLayoutRoute } from '@/pages/(layout)/GuestLayout'
+import { checkAuthQuery } from '@/feature/(auth)/checkAuth'
+import { registrationRoute } from '@/pages/(auth)/Registration'
+import { guardAccessLoader } from '@/app/providers/router/loader.lib.ts'
 
 export const router = createBrowserRouter([
   {
@@ -18,11 +19,15 @@ export const router = createBrowserRouter([
     ),
     children: [
       {
-        lazy: layoutPageRoute,
+        loader: checkAuthQuery,
         children: [
           {
-            lazy: guestLayoutRoute,
-            children: [loginPageRoute],
+            loader: () =>
+              guardAccessLoader({
+                redirectTo: routerPathKeys.home,
+                access: 'unauthenticated',
+              }),
+            children: [loginRoute, registrationRoute],
           },
         ],
       },

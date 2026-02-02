@@ -8,11 +8,11 @@ interface InfoCardProps {
 
 const InfoCard: FC<InfoCardProps> = ({ title, description }) => {
   return (
-    <Card>
-      <CardHeader>
+    <Card className={'gap-1 p-4 [&>div]:p-0'}>
+      <CardHeader className={'block'}>
         <h3>{title}</h3>
       </CardHeader>
-      <CardContent>
+      <CardContent className={'text-sm text-muted-foreground leading-4'}>
         <p>{description}</p>
       </CardContent>
     </Card>

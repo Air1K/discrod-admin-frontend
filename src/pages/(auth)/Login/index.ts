@@ -1,1 +1,1 @@
-export { loginPageRoute } from './router/loginPage.route'
+export { loginRoute } from './router/login.route.ts'

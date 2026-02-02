@@ -8,9 +8,10 @@ type UserStore = {
   clearUser: () => void
 }
 
-export const userStore = create<UserStore>((set) => ({
+export const userStore = create<UserStore>((set, get) => ({
   user: null,
   setUser: (user: User) => set({ user }),
   clearUser: () => set({ user: null }),
   updateUser: (userData: Partial<User>) => set((state) => ({ ...state, ...userData })),
+  isAuth: () => get().user !== null,
 }))

@@ -10,13 +10,17 @@ export const $api = axios.create({
   baseURL: `${$baseUrl}/api/bot`,
 })
 
-$api.interceptors.request.use((config) => {
-  const token = localStorage.getItem('token')
-  if (token) {
-    config.headers = config.headers ?? {}
-    config.headers.Authorization = `Bearer ${token}`
-  }
-
-  console.warn('[api] TOKEN is not set')
-  return config
-})
+export function attachAuthInterceptor(getAuthToken: () => string | null) {
+  $api.interceptors.request.use(
+    (config) => {
+      const token = getAuthToken()
+      if (token != null) {
+        config.headers.Authorization = `Bearer ${token}`
+      } else {
+        console.warn('[api] TOKEN is not set')
+      }
+      return config
+    },
+    (error) => Promise.reject(error),
+  )
+}

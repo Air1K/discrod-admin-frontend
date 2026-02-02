@@ -103,39 +103,40 @@ body {
 }
 
 .dark {
-    /* Base (фон на скрине заметно темнее) */
-    --background: oklch(0.114 0.007 261.0);          /* ~#040507 */
-    --foreground: oklch(0.953 0.003 286.3);          /* ~#efeff1 */
+    /* Base */
+    --background: oklch(0.114 0.007 261.0);
+    --foreground: oklch(0.953 0.003 286.3);
 
-    /* Surfaces (графит с холодным оттенком) */
-    --card: oklch(0.254 0.019 276.1);                /* ~#20222c */
+    /* Surfaces */
+    --card: oklch(0.24 0.01 276.66);
     --card-foreground: oklch(0.953 0.003 286.3);
-    --popover: oklch(0.254 0.019 276.1);
+
+    --popover: oklch(0.24 0.01 276.66);
     --popover-foreground: oklch(0.953 0.003 286.3);
 
     /* Brand */
-    --primary: oklch(0.577 0.209 273.9);             /* ~#5865F2 */
+    --primary: oklch(0.577 0.209 273.9);         /* ~#5865F2 */
     --primary-foreground: oklch(0.953 0.003 286.3);
 
-    /* Supporting */
-    --secondary: oklch(0.288 0.022 277.5);           /* чуть светлее card, как “слой” */
+    /* Supporting layers */
+    --secondary: oklch(0.275 0.012 276.66);      /* слой над card */
     --secondary-foreground: oklch(0.953 0.003 286.3);
 
-    /* Muted (под сетку/разделители) */
-    --muted: oklch(0.236 0.004 286.1);               /* ~#1e1e20 */
-    --muted-foreground: oklch(0.668 0.046 280.7);    /* ~#8f92b1 */
-
-    --accent: oklch(0.288 0.022 277.5);
+    --accent: oklch(0.305 0.014 276.66);         /* hover/selected слой (читаемее) */
     --accent-foreground: oklch(0.953 0.003 286.3);
+
+    --muted: oklch(0.205 0.008 276.66);          /* слой под card */
+    --muted-foreground: oklch(0.690 0.040 280.0);/* нейтральный серо-лавандовый */
 
     /* Status */
     --destructive: oklch(0.637 0.208 25.3);
     --destructive-foreground: oklch(0.953 0.003 286.3);
 
-    /* Borders / Inputs / Focus (более “стеклянно”, как на скрине) */
-    --border: oklch(0.348 0.017 280.9 / 30%);        /* ~#383943 @ 30% */
-    --input: oklch(0.348 0.017 280.9 / 55%);         /* ~#383943 @ 55% */
-    --ring: oklch(0.577 0.209 273.9);
+    /* Borders / Inputs / Focus
+       Правило: input border > border; обе видимы на card и на фоне */
+    --border: oklch(0.36 0.014 276.66 / 55%);    /* заметный, но не “мел” */
+    --input:  oklch(0.40 0.016 276.66 / 70%);    /* сильнее для интерактива */
+    --ring:   oklch(0.577 0.209 273.9);          /* брендовый фокус */
 
     /* Charts */
     --chart-1: oklch(0.577 0.209 273.9);
@@ -144,14 +145,17 @@ body {
     --chart-4: oklch(0.627 0.233 303.9);
     --chart-5: oklch(0.645 0.215 16.4);
 
-    /* Sidebar */
-    --sidebar: oklch(0.182 0.013 264.2);             /* ~#0f1218 */
+    /* Sidebar (чуть темнее/плотнее фона, но в той же температуре) */
+    --sidebar: oklch(0.170 0.008 276.66);
     --sidebar-foreground: oklch(0.953 0.003 286.3);
+
     --sidebar-primary: oklch(0.577 0.209 273.9);
     --sidebar-primary-foreground: oklch(0.953 0.003 286.3);
-    --sidebar-accent: oklch(0.288 0.022 277.5);
+
+    --sidebar-accent: oklch(0.225 0.010 276.66);
     --sidebar-accent-foreground: oklch(0.953 0.003 286.3);
-    --sidebar-border: oklch(0.348 0.017 280.9 / 30%);
+
+    --sidebar-border: oklch(0.36 0.014 276.66 / 55%);
     --sidebar-ring: oklch(0.577 0.209 273.9);
 }
 
