@@ -1,7 +1,7 @@
 import { create } from 'zustand'
-import type { SessionStore } from './session.type.ts'
+import type { AuthStore } from './auth.type.ts'
 
-export const sessionStore = create<SessionStore>((set, get) => ({
+export const authStore = create<AuthStore>((set, get) => ({
   token: null,
   setToken: (token: string) => set({ token }),
   clearToken: () => set({ token: null }),
