@@ -4,4 +4,4 @@ const BindingPage: FC = () => {
   return <div></div>
 }
 
-export default BindingPage
+export { BindingPage }

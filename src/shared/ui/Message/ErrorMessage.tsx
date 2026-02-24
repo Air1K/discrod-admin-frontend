@@ -8,7 +8,11 @@ interface ErrorMessageProps extends React.ComponentProps<'p'> {
 const ErrorMessage: FC<ErrorMessageProps> = ({ message, className, ...props }) => {
   if (!message) return null
   return (
-    <p {...props} role="alert" className={cn('text-xs text-destructive', className)}>
+    <p
+      {...props}
+      role="alert"
+      className={cn('text-xs text-destructive', className)}
+    >
       {message}
     </p>
   )

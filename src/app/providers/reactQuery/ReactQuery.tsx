@@ -5,9 +5,15 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 
 const ReactQuery: FC<Omit<QueryClientProviderProps, 'client'>> = ({ children, ...props }) => {
   return (
-    <QueryClientProvider {...props} client={queryClient}>
+    <QueryClientProvider
+      {...props}
+      client={queryClient}
+    >
       {children}
-      <ReactQueryDevtools initialIsOpen={false} buttonPosition="bottom-left" />
+      <ReactQueryDevtools
+        initialIsOpen={false}
+        buttonPosition="bottom-left"
+      />
     </QueryClientProvider>
   )
 }

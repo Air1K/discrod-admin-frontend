@@ -1,7 +1,3 @@
-export { authApi } from './api/authApi'
-export {
-  type RegisterPayload,
-  type LoginPayload,
-  RegisterPayloadSchema,
-  LoginPayloadSchema,
-} from './model/auth.type'
+export { authApi } from './api/auth.api'
+export { type RegisterPayload, type LoginPayload } from './model/auth.type'
+export { LoginPayloadSchema, RegisterPayloadSchema } from './model/auth.contracts'

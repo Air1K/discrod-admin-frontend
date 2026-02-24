@@ -1,22 +1,17 @@
-import { createBrowserRouter, redirect, useRouteError, Outlet } from 'react-router'
+import { createBrowserRouter, redirect, useRouteError } from 'react-router'
 import { page404Route } from '@/pages/NotFoundPage'
 import Spinner from '@/shared/ui/Spinner.tsx'
 import { routerPathKeys } from '@/shared/router/routerPathKeys.ts'
 import { loginRoute } from '@/pages/(auth)/Login'
-import BackgroundLayout from '@/shared/ui/layout/BackgroundLayout.tsx'
-import { checkAuthQuery } from '@/feature/(auth)/checkAuth'
+import { checkAuthQuery } from '@/features/(auth)/checkAuth'
 import { registrationRoute } from '@/pages/(auth)/Registration'
 import { guardAccessLoader } from '@/app/providers/router/loader.lib.ts'
+import { homeRoute } from '@/pages/HomePage'
 
 export const router = createBrowserRouter([
   {
     errorElement: <BubbleError />,
     hydrateFallbackElement: <Spinner />,
-    element: (
-      <BackgroundLayout>
-        <Outlet />
-      </BackgroundLayout>
-    ),
     children: [
       {
         loader: checkAuthQuery,
@@ -28,6 +23,14 @@ export const router = createBrowserRouter([
                 access: 'unauthenticated',
               }),
             children: [loginRoute, registrationRoute],
+          },
+          {
+            loader: () =>
+              guardAccessLoader({
+                redirectTo: routerPathKeys.login,
+                access: 'authenticated',
+              }),
+            children: [homeRoute],
           },
         ],
       },

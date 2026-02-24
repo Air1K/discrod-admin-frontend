@@ -1,15 +1,12 @@
 import { type FC } from 'react'
-import LogoLockup from '@/shared/ui/logo/LogoLockup.tsx'
 import LoginCard from './LoginCard.tsx'
-import { InfoCards } from '@/widget/auth'
+import { AuthLayout } from '@/widgets/auth'
 
 const LoginPage: FC = () => {
   return (
-    <div className={'w-screen h-screen flex gap-6 flex-col items-center justify-center'}>
-      <LogoLockup />
+    <AuthLayout>
       <LoginCard />
-      <InfoCards />
-    </div>
+    </AuthLayout>
   )
 }
 

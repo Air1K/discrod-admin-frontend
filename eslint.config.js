@@ -44,29 +44,20 @@ export default tseslint.config(
 
         /* ── 4) Удобные правила под Vite+React ─────────────── */
         'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
+        'no-restricted-imports': [
+          'error',
+          {
+            patterns: [
+              {
+                group: ['@/pages/**/ui/**', '@/pages/**/router/**', '@/pages/**/route/**'],
+                message:
+                  'Use page public API (index.ts) instead of deep imports from pages internals.',
+              },
+            ],
+          },
+        ],
       },
     },
-
-    /* ── 5) (Опционально) TS с анализом типов ────────────────
-     Включи блок ниже, если хочешь более строгий TS-линтинг.
-     Понадобится parserOptions.project (см. комментарий).
-  */
-    // {
-    //   files: ['**/*.{ts,tsx}'],
-    //   extends: [tseslint.configs.recommendedTypeChecked],
-    //   languageOptions: {
-    //     parserOptions: {
-    //       // Вариант А: один общий tsconfig:
-    //       project: ['./tsconfig.json'],
-    //       tsconfigRootDir: new URL('.', import.meta.url).pathname,
-    //     },
-    //   },
-    //   rules: {
-    //     // примеры строгих правил:
-    //     // '@typescript-eslint/await-thenable': 'error',
-    //     // '@typescript-eslint/no-floating-promises': 'error',
-    //   },
-    // },
   ],
   storybook.configs['flat/recommended'],
 )
