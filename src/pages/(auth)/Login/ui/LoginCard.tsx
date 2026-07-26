@@ -1,9 +1,10 @@
 import { type FC } from 'react'
 import { Card, CardContent, CardFooter, CardHeader } from '@/shared/ui/shadcn/card.tsx'
-import { LoginForm, LoginFromDiscordButton } from '@/features/(auth)/login'
 import { Separator } from '@/shared/ui/shadcn/separator.tsx'
-import { RegistrationButton } from '@/features/(auth)/registration'
 import { Policy } from '@/widgets/auth'
+import { LoginForm } from './LoginForm'
+import { LoginDiscordButton } from './LoginDiscordButton'
+import { RegistrationButton } from './RegistrationButton'
 
 const LoginCard: FC = () => {
   return (
@@ -15,7 +16,7 @@ const LoginCard: FC = () => {
         </p>
       </CardHeader>
       <CardContent className={'flex flex-col gap-5'}>
-        <LoginFromDiscordButton />
+        <LoginDiscordButton />
         <div className="flex items-center gap-3">
           <Separator className="flex-1" />
           <span className="shrink-0 text-xs text-muted-foreground">или</span>

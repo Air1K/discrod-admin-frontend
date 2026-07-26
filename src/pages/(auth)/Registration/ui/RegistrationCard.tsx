@@ -4,7 +4,7 @@ import { Policy } from '@/widgets/auth'
 import { Button } from '@/shared/ui/shadcn/Button'
 import { Link } from 'react-router'
 import { routerPathKeys } from '@/shared/router/routerPathKeys.ts'
-import { RegistrationForm } from '@/features/(auth)/registration'
+import { RegistrationForm } from './RegistrationForm'
 
 const RegistrationCard: FC = () => {
   return (

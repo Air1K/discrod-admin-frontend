@@ -3,10 +3,10 @@ import { page404Route } from '@/pages/NotFoundPage'
 import Spinner from '@/shared/ui/Spinner.tsx'
 import { routerPathKeys } from '@/shared/router/routerPathKeys.ts'
 import { loginRoute } from '@/pages/(auth)/Login'
-import { checkAuthQuery } from '@/features/(auth)/checkAuth'
 import { registrationRoute } from '@/pages/(auth)/Registration'
 import { guardAccessLoader } from '@/app/providers/router/loader.lib.ts'
 import { homeRoute } from '@/pages/HomePage'
+import { checkAuthQuery } from '@/shared/auth'
 
 export const router = createBrowserRouter([
   {

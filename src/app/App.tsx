@@ -1,11 +1,11 @@
 import { Providers } from '@/app/providers'
 import { attachAuthInterceptor } from '@/shared/api'
-import { sessionStore } from '@/entities/session'
+import { authStore } from '@/shared/auth'
 import BackgroundLayout from '@/shared/ui/layout/BackgroundLayout.tsx'
 import { ErrorBoundary } from 'react-error-boundary'
 import { ErrorHandler, logError } from '@/shared/ui/ErrorHandler'
 
-attachAuthInterceptor(() => sessionStore.getState().token)
+attachAuthInterceptor(() => authStore.getState().token)
 
 export default function App() {
   return (

@@ -1,6 +1,6 @@
 import type { RouterPath } from '@/shared/router/routerPathKeys'
 import { redirect } from 'react-router'
-import { sessionStore } from '@/entities/session'
+import { authStore } from '@/shared/auth'
 
 type AccessPolicy = 'authenticated' | 'unauthenticated'
 
@@ -11,7 +11,7 @@ type GuardLoaderProps = {
 }
 
 export const guardAccessLoader = ({ redirectTo, access = 'unauthenticated' }: GuardLoaderProps) => {
-  const isAuthenticated = sessionStore.getState().isAuth()
+  const isAuthenticated = authStore.getState().isAuthenticated()
   const shouldRedirect =
     (access === 'authenticated' && !isAuthenticated) ||
     (access === 'unauthenticated' && isAuthenticated)

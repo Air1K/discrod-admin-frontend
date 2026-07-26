@@ -1,7 +1,8 @@
 import { type FC } from 'react'
+import { BindingWizard } from './BindingWizard'
 
 const BindingPage: FC = () => {
-  return <div></div>
+  return <BindingWizard />
 }
 
 export { BindingPage }
